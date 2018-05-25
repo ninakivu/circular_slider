@@ -10,9 +10,40 @@
 </head>
 
 <body>
+  <h1>Circular Slider</h1>
   <div id="container">
-    <div class="price"></div>
-    <div class="slider"></div>
+    <div class="price">
+      <h4>Transportation: </h4><p id="price"></p>
+      <h4>Insurance: </h4><p id="in"></p>
+      <h4>Food: </h4><p id="fo"></p>
+      <h4>Entertainment: </h4><p id="en"></p>
+      <h4>Healt Care: </h4><p id="hc"></p>
+      
+    </div>
+    <div class="sliders">
+        
+        <div class="slider">
+          <input id="transportation" type="range" min="0" max="100" step="0.01">
+        </div>
+        
+        <div class="slider">
+          <input id="insurance" type="range" min="0" max="162" step="0.01">
+        </div>
+        
+        <div class="slider">
+          <input id="food" type="range" min="0" max="260" step="0.01">
+        </div>
+        
+        <div class="slider">
+          <input id="entertainment" type="range" min="0" max="420" step="0.01">
+        </div>
+        
+        <div class="slider">
+          <input id="health-care" type="range" min="0" max="680" step="0.01">
+        </div>
+        
+        
+    </div>
   </div>
   
 

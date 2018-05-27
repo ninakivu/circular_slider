@@ -13,12 +13,16 @@
   position: absolute;
   background: white;
   border-radius: 50%;
+  border: 10px solid gray
 }
 
 
 .one {
   width: 75%;
   height: 75%;
+}
+
+.one :after {
   border: 10px solid blue;
 }
 
@@ -27,8 +31,9 @@
   height: 60%;
   top: 7.5%;
   left: 7.5%;
+}
+.two :after {
   border: 10px solid red;
-
 }
 
 .three {
@@ -36,6 +41,8 @@
   height: 45%;
   top: 15%;
   left: 15%;
+}
+.three :after {
   border: 10px solid green;
 }
 
@@ -44,6 +51,8 @@
   height: 30%;
   top: 22.5%;
   left: 22.5%;
+}
+.four ::after {
   border: 10px solid orange;
 }
 
@@ -52,5 +61,17 @@
   height: 15%;
   top: 30%;
   left: 30%;
+}
+.five :after {
   border: 10px solid yellow;
+}
+
+.button {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 10px solid darkgray;
+  position: absolute;
+  top: -20px;
+  left: 50%;
 }

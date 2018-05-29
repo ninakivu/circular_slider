@@ -8,3 +8,16 @@ body {
   fill: none;
   stroke-width: 15px;
 }
+
+.mover {
+  background-color: whitesmoke;
+  border-radius: 50%;
+  box-shadow: 0 0 3px black;
+  cursor: pointer;
+  height: 26px;
+  margin-left: -13px;
+  position: absolute;
+  top: -13px;
+  width: 26px;
+  z-index: 124;
+}

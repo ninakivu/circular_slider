@@ -69,7 +69,9 @@ class CircularSlider {
     var y = Math.ceil((this.radius - 5) * -Math.cos(deg * Math.PI / 180)) + this.radius + "px";
     var points = Math.ceil(deg * this.range[1] / 360);
     this.dial.style.transform = "translate(" + x + "," + y + ")";
+    this.progress(points);
     // console.log(position)
+
   }
 
 }

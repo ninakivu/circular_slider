@@ -148,34 +148,39 @@ function sliderContainer () {
 const circleNode = new CircularSlider({
   color: "#ff3d70",
   range: [0, 100],
-  radius : 40
+  radius : 40,
+  step: 1
 })
 console.log(circleNode.appendNode())
 
 const circleNode2 = new CircularSlider({
   color: "3333ff",
   range: [0, 300],
-  radius : 80
+  radius : 80,
+  step: 2
 })
 console.log(circleNode2.appendNode())
 
 const circleNode3 = new CircularSlider({
   color: "4a4a4a",
   range: [0, 600],
-  radius : 120
+  radius : 120,
+  step: 1  
 })
 console.log(circleNode3.appendNode())
 
 const circleNode4 = new CircularSlider({
   color: "4fdee5",
-  range: [0, 600],
-  radius : 160
+  range: [0, 900],
+  radius : 160,
+  step: 2
 })
 console.log(circleNode4.appendNode())
 
 const circleNode5 = new CircularSlider({
   color: "a039cf",
-  range: [0, 600],
-  radius : 200
+  range: [0, 1200],
+  radius : 200,
+  step: 1  
 })
 console.log(circleNode5.appendNode())

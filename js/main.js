@@ -1,9 +1,7 @@
-// const svg = document.querySelector('svg')
 const btn = document.querySelector('button')
 const body = document.querySelector('body')
 const container = document.getElementById('container')
 console.log(container)
-// const dial = document.getElementsByClassName('dial')
 
 // document.getElementById("body").addEventListener("click", function(e) {
 //   console.log(e.clientX, e.clientY)
@@ -12,11 +10,12 @@ console.log(container)
 //   dial[0].style.transform = `translate(${x},${y})`
 // });
 
-
-
-
 class CircularSlider {
 	constructor(options) {
+    this.circumference = 2 * Math.PI * (options.radius - 6)
+    this.numberOfCircles = document.getElementsByTagName('circle').length
+    this.range = options.range
+    this.radius = options.radius
     this.mouseDown = true
     this.sliderContainer = sliderContainer()
     this.svg = svg(options)
@@ -27,17 +26,53 @@ class CircularSlider {
   }
 
   appendNode() {
+    var xx = Math.ceil((this.radius - 5) * Math.sin(1 * Math.PI / 180)) + this.radius + "px";
+    var yy = Math.ceil((this.radius - 5) * -Math.cos(1 * Math.PI / 180)) + this.radius + "px";
+    this.dial.style.transform = "translate(" + xx + "," + yy + ")";
     console.log(body)
     this.svg.appendChild(this.progressMeter);
     this.svg.appendChild(this.progressValue)
     this.sliderContainer.appendChild(this.svg)
+    this.sliderContainer.appendChild(this.dial)
+    this.sliderContainer.appendChild(this.input)
+    this.sliderContainer.style = `z-index: ${200 - this.numberOfCircles};`
+    this.progressValue.style.strokeDasharray = this.circumference
+    this.progressMeter.addEventListener("click", this.move.bind(this))
+    this.progressValue.addEventListener("click", this.move.bind(this))
     container.appendChild(this.sliderContainer)
+    this.progressValue.style.strokeDasharray = this.circumference;
+    this.progress(this.input.value)
   }
- 
 
+  progress(value) {
+    var progress = value / this.range[1];
+    var dashoffset = this.circumference * (1 - progress);
+    this.progressValue.style.strokeDashoffset = dashoffset;
+  };
+
+  move(e) {
+    this.update(e)
+  }
+
+  update(e) {
+    // this.sliderContainer.style = "z-index: 20"
+    let position = { x: e.pageX, y: e.pageY }
+    var dialRadius = this.dial.offsetWidth / 2;
+    var coords = {
+      x: position.x - this.sliderContainer.offsetLeft,
+      y: position.y - this.sliderContainer.offsetTop
+    };
+    var atan = Math.atan2(coords.x - this.radius, coords.y - this.radius);
+    var deg = Math.ceil(-atan / (Math.PI / 180) + 180);
+
+    var x = Math.ceil((this.radius - 5) * Math.sin(deg * Math.PI / 180)) + this.radius + "px";
+    var y = Math.ceil((this.radius - 5) * -Math.cos(deg * Math.PI / 180)) + this.radius + "px";
+    var points = Math.ceil(deg * this.range[1] / 360);
+    this.dial.style.transform = "translate(" + x + "," + y + ")";
+    // console.log(position)
+  }
 
 }
-
 
 
 function svg (options) {
@@ -80,7 +115,7 @@ function progressValue(options) {
   return progressValue
 }
 
-function dial () {
+function dial() {
   var dial = document.createElement('div');
   dial.setAttribute('class', 'dial');
   return dial
@@ -108,23 +143,37 @@ function sliderContainer () {
 }
 
 
-
-
 const circleNode = new CircularSlider({
-  color: "red",
+  color: "#ff3d70",
   range: [0, 100],
-  radius : 30
+  radius : 40
 })
 console.log(circleNode.appendNode())
+
 const circleNode2 = new CircularSlider({
-  color: "red",
+  color: "3333ff",
   range: [0, 300],
-  radius : 60
+  radius : 80
 })
 console.log(circleNode2.appendNode())
+
 const circleNode3 = new CircularSlider({
-  color: "red",
+  color: "4a4a4a",
   range: [0, 600],
-  radius : 90
+  radius : 120
 })
 console.log(circleNode3.appendNode())
+
+const circleNode4 = new CircularSlider({
+  color: "4fdee5",
+  range: [0, 600],
+  radius : 160
+})
+console.log(circleNode4.appendNode())
+
+const circleNode5 = new CircularSlider({
+  color: "a039cf",
+  range: [0, 600],
+  radius : 200
+})
+console.log(circleNode5.appendNode())

@@ -32,8 +32,12 @@ class CircularSlider {
 
   addEventListeners() {
     this.dial.addEventListener("mousedown", () => this.mouseDown = true)
+    this.dial.addEventListener("touchstart", () => this.mouseDown = true)
+    
     this.sliderContainer.addEventListener("mousemove", this.move.bind(this)) 
     document.addEventListener("mouseup", () => this.mouseDown = false)
+    document.addEventListener("touchend", () => this.mouseDown = false)
+    
     this.progress(this.input.value)
   }
 
@@ -53,7 +57,13 @@ class CircularSlider {
   }
 
   update (e) {
-    const position = { x: e.pageX, y: e.pageY }
+    var position;
+    if(e.type == 'mouseup' || e.type == 'mousedown' || e.type == 'mousemove' || e.type == 'click') {
+      position = { x: e.pageX, y: e.pageY };
+    } else if(e.type == 'touchend' || e.type == 'touchstart' || e.type == 'touchmove') {
+      e.preventDefault();
+      position = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
     const dialRadius = this.dial.offsetWidth / 2;
     const coords = {
       x: position.x - this.sliderContainer.offsetLeft,
@@ -165,7 +175,7 @@ function sliderContainer () {
 
 
 const circleNode = new CircularSlider({
-  color: "#ff3d70",
+  color: "#4a4a4a",
   range: [0, 100],
   radius : 30,
   step: 1,
@@ -183,7 +193,7 @@ const circleNode2 = new CircularSlider({
 circleNode2.appendNode()
 
 const circleNode3 = new CircularSlider({
-  color: "#4a4a4a",
+  color: "#ff3d70",
   range: [0, 600],
   radius : 90,
   step: 1,

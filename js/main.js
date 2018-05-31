@@ -167,7 +167,7 @@ function sliderContainer () {
 const circleNode = new CircularSlider({
   color: "#ff3d70",
   range: [0, 100],
-  radius : 40,
+  radius : 30,
   step: 1,
   text: "Transportation"
 })
@@ -176,7 +176,7 @@ circleNode.appendNode()
 const circleNode2 = new CircularSlider({
   color: "#3333ff",
   range: [0, 300],
-  radius : 80,
+  radius : 60,
   step: 1,
   text: "Food"  
 })
@@ -185,7 +185,7 @@ circleNode2.appendNode()
 const circleNode3 = new CircularSlider({
   color: "#4a4a4a",
   range: [0, 600],
-  radius : 120,
+  radius : 90,
   step: 1,
   text: "Insurance"  
 })
@@ -194,7 +194,7 @@ circleNode3.appendNode()
 const circleNode4 = new CircularSlider({
   color: "#4fdee5",
   range: [0, 900],
-  radius : 160,
+  radius : 120,
   step: 1,
   text: "Entertainment"
 })
@@ -203,7 +203,7 @@ circleNode4.appendNode()
 const circleNode5 = new CircularSlider({
   color: "#a039cf",
   range: [0, 1200],
-  radius : 200,
+  radius : 150,
   step: 1,
   text: "Health care"  
 })

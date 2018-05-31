@@ -10,13 +10,8 @@ body {
   /* background-image: -webkit-gradient(linear, left bottom, left top, from(#e6e9f0), to(#eef1f5));
   background-image: -webkit-linear-gradient(bottom, #e6e9f0 0%, #eef1f5 100%);
   background-image: -o-linear-gradient(bottom, #e6e9f0 0%, #eef1f5 100%);
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */;
-  font-family: Arial, Helvetica, sans-serif
-}
-
-h1 {
-  margin-left: 10%;
-  margin-bottom: 10%;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -87,16 +82,11 @@ input {
   top: 50%;
   left: 15%;
   transform: translate(-15%, -50%);
-  margin-top: 5%;
-  font-size: 1em;
-  
 }
 
 .price .pricing {
   color: black;
-  font-size: 2rem;
-  width: 2.5em;
-  display: inline-block;
+  font-size: 3.5rem;
 }
 
 .price .box {
@@ -115,7 +105,8 @@ input {
 
   .price {
       position: absolute;
-      display: inline-block;
+      align-self: center baseline;
+      padding: 1%;
       top: 120%;
       left: 50%;
       transform: translate(-50%, -120%);
@@ -126,7 +117,16 @@ input {
 @media screen and (max-width: 768px) {
 
   .price .pricing {
-      font-size: 2.5rem;
+      font-size: 2rem;
   }
+
+}
+
+@media screen and (max-width: 320px) {
+
+  .price .pricing {
+      font-size: 1.5rem;
+  }
+
 
 }

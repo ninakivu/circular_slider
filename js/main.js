@@ -12,6 +12,8 @@ class CircularSlider {
     this.dial = dial(options)
     this.input = input(options)
     this.pricing = pricing(options)
+    document.addEventListener("mousemove", this.move.bind(this))
+    document.addEventListener("touchmove", this.move.bind(this), {passive: false})
   }
 
   appendNode() {
@@ -23,6 +25,9 @@ class CircularSlider {
     this.sliderContainer.style = `z-index: ${200 - this.numberOfCircles};`
     container.appendChild(this.sliderContainer)
     this.addEventListeners()
+
+    this.progressMeter.addEventListener("click", this.move.bind(this))
+    this.progressValue.addEventListener("click", this.move.bind(this))
   }
 
   addEventListeners() {

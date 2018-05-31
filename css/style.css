@@ -89,11 +89,14 @@ input {
   transform: translate(-15%, -50%);
   margin-top: 5%;
   font-size: 1em;
+  
 }
 
 .price .pricing {
   color: black;
   font-size: 2rem;
+  width: 2.5em;
+  display: inline-block;
 }
 
 .price .box {

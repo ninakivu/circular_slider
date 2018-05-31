@@ -64,6 +64,7 @@ class CircularSlider {
       e.preventDefault();
       position = { x: e.touches[0].clientX, y: e.touches[0].clientY };
     }
+    
     const dialRadius = this.dial.offsetWidth / 2;
     const coords = {
       x: position.x - this.sliderContainer.offsetLeft,
